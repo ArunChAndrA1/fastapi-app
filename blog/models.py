@@ -9,7 +9,7 @@ class Course(Base):
     course_id= Column(Integer,primary_key=True)
     course_name = Column(String,nullable=False)
     duration_in_hours = Column(Float,nullable=False)
-    student = relationship("Student",back_populates="opted_courses")
+    # student = relationship("Student",back_populates="opted_courses")
     
 class Student(Base):
     __tablename__="students"
@@ -17,8 +17,9 @@ class Student(Base):
     name = Column(String,nullable=False)
     email = Column(String,nullable=False)
     password= Column(String,nullable=False)
-    course = Column(Integer,ForeignKey('courses.course_id'))
-    
-    opted_courses=relationship("Course",back_populates="student")
+    course_1 = Column(Integer,ForeignKey('courses.course_id'))
+    course_2 = Column(Integer,ForeignKey('courses.course_id'))
+    opted_course_1=relationship("Course",foreign_keys=[course_1])
+    opted_course_2=relationship("Course",foreign_keys=[course_2])
     
     

@@ -11,7 +11,7 @@ router = APIRouter(prefix="/student",tags=['Students'])
 
 @router.post("/add")
 def add_student(request: Student_schema,db: SessionLocal=Depends(get_db),current_user: Student_schema = Depends(JWToken.get_current_user)):
-    stud= Student(name =request.name,email =request.email,password = Hash.hash(request.password),course= request.course)
+    stud= Student(name =request.name,email =request.email,password = Hash.hash(request.password),course_1= request.course_1,course_2= request.course_2)
     db.add(stud)
     db.commit()
     db.refresh(stud)
