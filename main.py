@@ -1,6 +1,6 @@
 from fastapi import Depends, FastAPI
-from database import Base,engine
-from routes import course,students,login
+from blog.database import Base,engine
+from blog.routes import course,students,login
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -9,7 +9,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methode=["*"],
+    allow_methods=["*"],
     allow_headers=["*"]
     
 )

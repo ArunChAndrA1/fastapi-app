@@ -1,11 +1,11 @@
 from fastapi import APIRouter
-from routes.JWToken import create_access_token
+from blog.JWToken import create_access_token
 
 from fastapi.security import OAuth2PasswordRequestForm
-from database import SessionLocal,get_db
-from models import Student
+from blog.database import SessionLocal,get_db
+from blog.models import Student
 from fastapi import Depends,status,HTTPException
-from hashing import Hash
+from blog.hashing import Hash
 
 router=APIRouter(tags=['Authentication'])
 

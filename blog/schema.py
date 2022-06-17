@@ -5,7 +5,7 @@ class Student_schema(BaseModel):
     name: str
     email:str
     password: str
-    course_opted: int
+    course: int
     # course_2: int
     class Config:
         orm_mode=True
@@ -18,10 +18,17 @@ class Course_schema(BaseModel):
     class Config:
         orm_mode=True       
         
+class Course_response_schema(BaseModel):
+    course_name: str
+    duration_in_hours: float
+    class Config:
+        orm_mode=True         
+
 class Student_response_schema(BaseModel):
     name: str
     email:str
-    course: Course_schema
+    opted_courses: Course_response_schema
+    # opted_course_2:Course_schema
     # course: Course_schema
     class Config:
         orm_mode=True 

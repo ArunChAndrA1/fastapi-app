@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 from fastapi import Depends,HTTPException,status
-from database import Base, SessionLocal,get_db
-from models import Course
-from schema import Course_schema
-from routes import JWToken
+from blog.database import Base, SessionLocal,get_db
+from blog.models import Course
+from blog.schema import Course_schema
+from blog import JWToken
 
 
 
